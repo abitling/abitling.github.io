@@ -48,6 +48,7 @@
         return ios ? ( (!standalone && !safari) || ios_ipad_webview ) : userAgent.includes('wv');
       }
       function launchApp() {
+        alert(isWebview())
         if (!isWebview()) {
           window.location.href = "https://bit.ly/3qoZPjx";
         } else {
