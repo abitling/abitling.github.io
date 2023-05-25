@@ -37,18 +37,22 @@
     <script>
       var source = "";
       function isWebview() {
-        if (typeof window === undefined) { return false };
+        if (typeof window === undefined) {
+          return false;
+        }
         let navigator = window.navigator;
         const standalone = navigator.standalone;
         const userAgent = navigator.userAgent.toLowerCase();
         const safari = /safari/.test(userAgent);
-        const ios = /iphone|ipod|ipad/macintosh.test(userAgent);
+        const ios = /iphone | ipod | ipad | macintosh/.test(userAgent);
         const ios_ipad_webview = ios && !safari;
 
-        return ios ? ( (!standalone && !safari) || ios_ipad_webview ) : userAgent.includes('wv');
+        return ios
+          ? (!standalone && !safari) || ios_ipad_webview
+          : userAgent.includes("wv");
       }
       function launchApp() {
-        alert(isWebview())
+        alert(isWebview());
         if (!isWebview()) {
           window.location.href = "https://bit.ly/3qoZPjx";
         } else {
