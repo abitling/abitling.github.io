@@ -36,27 +36,27 @@
   <body>
     <script>
       var source = "";
-      function isWebview() {
-        if (typeof window === undefined) {
-          return false;
-        }
-        let navigator = window.navigator;
-        const standalone = navigator.standalone;
-        const userAgent = navigator.userAgent.toLowerCase();
-        const safari = /safari/.test(userAgent);
-        const ios = /iphone | ipod | ipad | macintosh/.test(userAgent);
-        const ios_ipad_webview = ios && !safari;
+      // function isWebview() {
+      //   if (typeof window === undefined) {
+      //     return false;
+      //   }
+      //   let navigator = window.navigator;
+      //   const standalone = navigator.standalone;
+      //   const userAgent = navigator.userAgent.toLowerCase();
+      //   const safari = /safari/.test(userAgent);
+      //   const ios = /iphone | ipod | ipad | macintosh/.test(userAgent);
+      //   const ios_ipad_webview = ios && !safari;
 
-        return ios
-          ? (!standalone && !safari) || ios_ipad_webview
-          : userAgent.includes("wv");
-      }
+      //   return ios
+      //     ? (!standalone && !safari) || ios_ipad_webview
+      //     : userAgent.includes("wv");
+      // }
       function launchApp() {
-        alert(isWebview());
-        if (!isWebview()) {
-          window.location.href = "https://rdiscovery.page.link/gBD9";
-        } else {
+        alert(source === "fromApp");
+        if (source === "fromApp") {
           window.postMessage("rdiscovery://", "*");
+        } else {
+          window.location.href = "https://rdiscovery.page.link/gBD9";
         }
       }
     </script>
