@@ -35,9 +35,13 @@
   </head>
   <body>
     <script>
+      var source = "";
       function launchApp() {
         var appScheme = "rdiscovery://";
-        window.location.href = "https://bit.ly/3qoZPjx";
+        alert(source);
+        if (autoLogin) {
+          window.location.href = "https://bit.ly/3qoZPjx";
+        }
         window.postMessage(appScheme, "*");
       }
     </script>
